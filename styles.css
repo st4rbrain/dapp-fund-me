@@ -135,7 +135,7 @@ p {
     display: flex;
     flex-direction: column;
     padding: 0.8rem 1rem;
-    max-height: 9rem;
+    max-height: 11rem;
     border: 1px solid rgb(161, 161, 161);
     border-radius: 5px;
     background: linear-gradient(to bottom, rgb(39, 39, 39), rgb(22, 22, 22));
@@ -147,7 +147,23 @@ p {
     font-weight: 200;
     font-size: 0.75rem;
     min-height: 0.8rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.user-guide-num {
+    color: rgb(255, 255, 255);
+}
+
+.chainlink-faucet {
+    text-decoration: none;
+}
+
+.chainlink-faucet:link {
+    color: rgb(92, 64, 255);
+}
+
+.chainlink-faucet:visited {
+    color: rgb(92, 64, 255);
 }
 
 .upvote {
@@ -638,7 +654,7 @@ p {
 
 .latest-funder-address,
 .maximum-funder-address {
-    color: rgba(102, 250, 255, 0.774);
+    color: rgba(57, 172, 218, 0.863);
     font-size: 0.6rem;
     font-family: "Roboto";
 }

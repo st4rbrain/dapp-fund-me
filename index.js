@@ -60,12 +60,12 @@ const maticPairPrice = document.getElementById("matic-pair-price");
 const convertedAmount = document.getElementById("converted-amt");
 let blockExplorer = document.getElementById("blockExplorer");
 let walletConnected = false;
+let hasDataLoaded = false;
 const supportedNetworks = ["SepoliaETH", "mMATIC", "GO"];
 
 /* notification and loading variables */
 
 let currentNotificationTimeout;
-const upvoteCount = document.getElementById("upvote-count");
 const loading = document.getElementsByClassName("loading");
 const notificationLabel = document.getElementById("notificationLabel");
 const notificationValue = document.getElementById("notificationValue");
@@ -151,11 +151,7 @@ ws.onmessage = (e) => {
 
 /* event handlers */
 
-let upvoted = false;
-let upvotes = 0;
-
 // button clicks
-
 withdrawButton.onclick = withdraw;
 fundButton.onclick = fund;
 balanceButton.onclick = showBalanceNotification;
@@ -170,10 +166,23 @@ ethImage.onload = () => {
     animate();
 };
 
-//set network data
+//set network data on website load
 window.onload = async () => {
     if (typeof window.ethereum !== "undefined") {
-        await setNetworkRelatedData();
+        // set the contract address
+        const currentNetwork = await getCurrentChainSymbol();
+        contractAddressLabel.innerHTML = contractAddress[currentNetwork];
+        const accounts = await ethereum.request({ method: "eth_accounts" });
+        if (accounts.length) {
+            await setNetworkRelatedData();
+            hasDataLoaded = true;
+        } else {
+            notification(
+                notificationColor["warningColor"],
+                "Connect Wallet",
+                "warning"
+            );
+        }
     } else {
         installMetamaskNotification();
     }
@@ -310,15 +319,22 @@ async function connect() {
             console.error(error);
         }
         const accounts = await ethereum.request({ method: "eth_accounts" });
-        walletConnected = true;
-        clearTimeout(currentNotificationTimeout);
+        if (accounts.length) {
+            resetNotification(0.01);
+            walletConnected = true;
+            clearTimeout(currentNotificationTimeout);
 
-        // show connected notification
-        notificationLabel.style.color = notificationColor["successColor"];
-        notificationLabel.innerHTML = "Wallet Connected";
-        notificationValue.innerHTML = "$$$";
-        connectButton.innerHTML = accounts[0];
-        resetNotification(2);
+            // show connected notification
+            notificationLabel.style.color = notificationColor["successColor"];
+            notificationLabel.innerHTML = "Wallet Connected";
+            notificationValue.innerHTML = "$$$";
+            connectButton.innerHTML = accounts[0];
+            if (!hasDataLoaded) {
+                setNetworkRelatedData();
+                hasDataLoaded = true;
+            }
+            resetNotification(2);
+        }
     } else {
         installMetamaskNotification();
     }
