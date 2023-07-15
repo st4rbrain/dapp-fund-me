@@ -617,7 +617,7 @@ p {
 .total-funders-label,
 .total-funded-amt-label,
 .crypto-pair {
-    color: rgb(55, 118, 255);
+    color: rgb(255, 98, 229);
     font-family: "Orbitron";
     font-size: 0.8rem;
     font-weight: bold;
@@ -646,9 +646,8 @@ p {
 .maximum-fund-address-label {
     color: rgb(190, 229, 255);
     font-family: "Roboto";
-    /* text-align: center; */
     font-size: 0.8rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.3rem;
     padding: 0.1rem 0;
 }
 
