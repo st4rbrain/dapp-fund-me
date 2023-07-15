@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FundMe DApp</title>
+        <link rel="icon" type="images/png" href="./favicon.png" />
+        <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png" />
+        <link rel="stylesheet" href="./styles.css" />
+    </head>
+
+    <body>
+        <!-- <canvas class="connectionCanvas" id="connectionCanvas"></canvas> -->
+        <canvas class="imageCanvas" id="imageCanvas"></canvas>
+        <div class="container">
+            <div class="rightColumn">
+                <div class="latestData">
+                    <h2 class="transactions">Transactions</h2>
+                    <p class="loading" id="loading"></p>
+                    <div class="latest-fund">
+                        <div class="side-box-row">
+                            <label class="latest-fund-label">Latest Fund</label>
+                            <span
+                                class="latest-fund-amt"
+                                id="latest-fund-amt"
+                            ></span>
+                        </div>
+                        <label class="latest-fund-address-label">Address</label>
+                        <p class="latest-funder-address" id="latest-funder"></p>
+                    </div>
+                    <div class="maximum-fund">
+                        <div class="side-box-row">
+                            <label class="maximum-fund-label"
+                                >Maximum Fund</label
+                            >
+                            <span
+                                class="maximum-fund-amt"
+                                id="maximum-fund-amt"
+                            ></span>
+                        </div>
+                        <label class="maximum-fund-address-label"
+                            >Address</label
+                        >
+                        <p
+                            class="maximum-funder-address"
+                            id="maximum-funder"
+                        ></p>
+                    </div>
+                </div>
+                <div class="insights">
+                    <h2 class="transactions">Insights</h2>
+                    <p class="loading" id="loading"></p>
+                    <div class="side-box-row">
+                        <label class="total-funders-label">Total Funders</label>
+                        <span class="total-funders" id="total-funders"></span>
+                    </div>
+                    <div class="side-box-row">
+                        <label class="total-funded-amt-label"
+                            >Total Funds</label
+                        >
+                        <span
+                            class="total-funded-amt"
+                            id="total-funded-amt"
+                        ></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contractUI">
+                <div class="projectTitle">
+                    <h1>FundMe</h1>
+                </div>
+                <div class="subContainer">
+                    <div class="firstRow">
+                        <div class="description">
+                            FundMe is a decentralized protocol that allows
+                            contract owner to raise funds for any project. Users
+                            can contribute a minimum of 5 USD based on network
+                            pair pricing, while only the owner can withdraw
+                            funds.
+                        </div>
+                        <div class="connectButtonDiv">
+                            <button
+                                id="connectButton"
+                                class="buttonCss connectButtonCss"
+                            >
+                                Connect
+                            </button>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <div class="contract-details">
+                            <div class="ownerDetail">
+                                <label class="ownerLabel">Owner</label
+                                ><label class="colon">:</label>
+                                <label
+                                    class="ownerAddress"
+                                    id="ownerAddressLabel"
+                                ></label>
+                            </div>
+                            <div class="contractDetail">
+                                <label class="contractLabel">Contract</label
+                                ><label class="colon">:</label>
+                                <a target="_blank" id="blockExplorer"
+                                    ><label
+                                        class="contractAddress"
+                                        id="contractAddressLabel"
+                                    ></label
+                                ></a>
+                            </div>
+                        </div>
+                        <div class="network-detail">
+                            <!-- <label class="networkLabel">Network</label> -->
+                            <label
+                                for="ethSymbol"
+                                id="ethChain"
+                                class="ethLabel"
+                            ></label>
+                        </div>
+                    </div>
+                    <div class="actionElements">
+                        <div class="leftAction">
+                            <div class="leftActionFirstRow">
+                                <button
+                                    id="balanceButton"
+                                    class="buttonCss balanceButtonCss"
+                                >
+                                    Balance
+                                </button>
+                                <button
+                                    id="withdrawButton"
+                                    class="buttonCss withdrawButtonCss"
+                                >
+                                    Withdraw
+                                </button>
+                                <label id="converted-amt" class="converted-amt"
+                                    >0.00 USD</label
+                                >
+                            </div>
+                            <div class="leftActionSecondRow">
+                                <div class="ethFund">
+                                    <div class="amtAndSymbol">
+                                        <label for="ethAmount" class="amtLabel"
+                                            >Amount</label
+                                        >
+                                    </div>
+                                    <input id="ethAmount" />
+                                </div>
+                                <button
+                                    type="button"
+                                    id="fundButton"
+                                    class="buttonCss fundButtonCss"
+                                >
+                                    Fund
+                                </button>
+                            </div>
+                        </div>
+                        <div class="rightAction">
+                            <h2>Notifications</h2>
+                            <div class="notificationCss">
+                                <p
+                                    id="notificationLabel"
+                                    class="notificationLabelCss"
+                                >
+                                    None
+                                </p>
+                                <p
+                                    id="notificationValue"
+                                    class="notificationValueCss"
+                                ></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rightColumn">
+                <div class="network-price-box">
+                    <h2 class="network-price">Network Price</h2>
+                    <div class="side-box-row">
+                        <label class="crypto-pair">ETH / USD</label>
+                        <span class="eth-pair-price" id="eth-pair-price"></span>
+                    </div>
+                    <div class="side-box-row">
+                        <label class="crypto-pair">MATIC / USD</label>
+                        <span
+                            class="matic-pair-price"
+                            id="matic-pair-price"
+                        ></span>
+                    </div>
+                </div>
+                <div class="user-guide">
+                    <h2 class="user-guide-label">User Guide</h2>
+                    <p class="use-steps">
+                        1. Install Metamask Browser Extension
+                    </p>
+                    <p class="use-steps">2. Add Sepolia and Mumbai networks</p>
+                    <p class="use-steps">3. Get test SepoliaETH and mMATIC</p>
+                    <p class="use-steps">4. Connect Account and then Fund</p>
+                </div>
+            </div>
+        </div>
+        <div class="endContainer">
+            <div class="upvote">
+                <div class="image-info">
+                    <button class="coffee" id="coffee"></button>
+                </div>
+            </div>
+            <div class="networkInfo">
+                <div class="testnetInfo">
+                    <label class="testnetLabel">Testnet Support</label>
+                    <label class="colon">:</label>
+                    <label class="testnets">Sepolia / Polygon Mumbai</label>
+                </div>
+                <div class="mainnetInfo">
+                    <label class="mainnetLabel">Mainnet Support</label>
+                    <label class="colon">:</label>
+                    <label class="mainnets">Coming Soon</label>
+                </div>
+                <div class="donate">
+                    <label class="donateLabel">~ Donate ~</label>
+                    <label class="donationDetail"
+                        >ETH/Arbitrum/Optimism/Polygon/etc Address :
+                        0x772d5AD6b49b614D6048d3aE97d9e7E7e101F022
+                    </label>
+                </div>
+            </div>
+            <div class="credits">
+                <div class="credit-bar">
+                    <label class="creator-label">Creator :</label> @st4rbrain
+                </div>
+                <label class="follow-label">Follow me:</label>
+                <div class="follow-links">
+                    <a href="https://github.com/st4rbrain" target="_blank"
+                        ><img
+                            class="follow-link-logo"
+                            src="./images/githubLogo.png"
+                    /></a>
+                    <a href="https://twitter.com/st4rlad" target="_blank"
+                        ><img
+                            class="follow-link-logo"
+                            src="./images/twitterLogo.png"
+                    /></a>
+                    <a
+                        href="https://discord.com/users/936974969269780511"
+                        target="_blank"
+                        ><img
+                            class="follow-link-logo"
+                            src="./images/discordLogo.png"
+                    /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="thankYou">!! Thank You !!</div>
+    </body>
+
+    <script src="./index.js" type="module"></script>
+</html>
