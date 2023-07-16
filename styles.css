@@ -17,6 +17,7 @@ body {
 }
 
 input {
+    flex: 1;
     padding: 7px;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 4px;
@@ -24,7 +25,7 @@ input {
     font-family: "Roboto";
     background-color: rgb(236, 236, 236);
     font-size: 1rem;
-    min-width: 12.8rem;
+    min-width: 14rem;
 }
 
 input:focus {
@@ -72,6 +73,7 @@ p {
 .container {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 0.5vw;
     margin-bottom: 1rem;
     /* align-items: center; */
 }
@@ -85,6 +87,7 @@ p {
 .insights,
 .network-price-box,
 .user-guide {
+    flex: 1;
     display: flex;
     flex-direction: column;
     border: 1px solid #afafaf;
@@ -142,10 +145,10 @@ p {
 }
 
 .use-steps {
-    color: rgba(119, 250, 255, 0.795);
-    font-family: "Roboto";
-    font-weight: 200;
-    font-size: 0.75rem;
+    color: rgba(64, 242, 248, 0.904);
+    font-family: "Roboto Condensed";
+    font-weight: 500;
+    font-size: 0.78rem;
     min-height: 0.8rem;
     margin-bottom: 0.5rem;
 }
@@ -159,11 +162,11 @@ p {
 }
 
 .chainlink-faucet:link {
-    color: rgb(92, 64, 255);
+    color: #3972eb;
 }
 
 .chainlink-faucet:visited {
-    color: rgb(92, 64, 255);
+    color: #3972eb;
 }
 
 .upvote {
@@ -172,7 +175,7 @@ p {
     align-items: center;
     margin-top: 3rem;
     min-width: 10rem;
-    margin: 1rem 4rem;
+    margin: 1rem 3.7rem;
     flex-direction: column;
 }
 
@@ -338,6 +341,7 @@ p {
 
 .connectButtonDiv {
     display: flex;
+    padding: 0 1.5rem;
     justify-content: center;
     align-items: flex-start;
     width: 30%;
@@ -377,6 +381,7 @@ p {
 }
 
 .buttonCss {
+    flex: 1;
     cursor: pointer;
     border: 2px white solid;
     color: white;
@@ -388,8 +393,7 @@ p {
     transition: background-color 0.3s ease;
     padding: 0.5em 1em; /* Adjust padding as needed */
     font-size: 16px; /* Adjust font size as needed */
-    width: auto;
-    height: auto;
+    margin: 0 0.5rem;
 }
 
 .connectButtonCss {
@@ -411,7 +415,7 @@ p {
 }
 
 .fundButtonCss {
-    min-width: 6rem;
+    min-width: 5rem;
     min-height: 2.5rem;
 }
 
@@ -452,6 +456,7 @@ p {
 }
 
 .leftActionFirstRow {
+    padding: 0 0.3rem;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -460,6 +465,7 @@ p {
 }
 
 .leftActionSecondRow {
+    padding: 0 0.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -469,14 +475,17 @@ p {
 }
 
 .ethFund {
+    flex: 1;
     display: flex;
     align-items: center;
     padding-top: 3px;
     min-width: 67%;
-    margin-right: 0.45rem;
+    margin: 0 0.5rem;
 }
 
 .converted-amt {
+    flex: 1;
+    margin: 0 0.5rem;
     color: white;
     font-family: "Roboto";
     width: 7rem;
@@ -510,7 +519,7 @@ p {
 
 .endContainer {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .testnetInfo,
@@ -667,4 +676,9 @@ p {
     color: rgb(231, 231, 231);
     font-size: 0.8rem;
     font-family: "Roboto";
+}
+
+.eth-pair-price,
+.matic-pair-price {
+    font-weight: bold;
 }
