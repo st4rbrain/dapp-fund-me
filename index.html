@@ -2,12 +2,13 @@
 <html>
     <head>
         <title>FundMe DApp</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="images/png" href="./favicon.png" />
         <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&family=Roboto&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@400&display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="./styles.css" />
@@ -16,8 +17,13 @@
     <body>
         <!-- <canvas class="connectionCanvas" id="connectionCanvas"></canvas> -->
         <canvas class="imageCanvas" id="imageCanvas"></canvas>
+        <div class="cover">
+            <div class="desktopInfo">
+                Please use a bigger screen device like a Desktop >_<
+            </div>
+        </div>
         <div class="container">
-            <div class="rightColumn">
+            <div class="sideBoxColumn">
                 <div class="latestData">
                     <h2 class="transactions">Transactions</h2>
                     <p class="loading" id="loading"></p>
@@ -177,7 +183,7 @@
                     </div>
                 </div>
             </div>
-            <div class="rightColumn">
+            <div class="sideBoxColumn">
                 <div class="network-price-box">
                     <h2 class="network-price">Network Price</h2>
                     <div class="side-box-row">
@@ -214,7 +220,7 @@
                             target="_blank"
                             >sepoliafaucet</a
                         >
-                        /
+                        |
                         <a
                             class="chainlink-faucet"
                             href="https://mumbaifaucet.com/"
